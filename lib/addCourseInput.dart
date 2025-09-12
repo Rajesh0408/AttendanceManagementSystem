@@ -1,9 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 import 'constants/colours.dart';
-import 'package:myapp/listClass.dart';
 import 'package:myapp/post/postCourseDetails.dart';
 
 import 'AdvisorMainPage.dart';
@@ -11,14 +8,14 @@ import 'AdvisorMainPage.dart';
 class addCourseInput extends StatefulWidget{
   String userId;
   bool isfaculty;
-  addCourseInput(this.userId, this.isfaculty);
+  addCourseInput(this.userId, this.isfaculty, {super.key});
   @override
   addCourseInputState createState() => addCourseInputState();
 }
 
 class addCourseInputState extends State<addCourseInput> {
-  TextEditingController _courseCodeController = TextEditingController();
-  TextEditingController _courseNameController = TextEditingController();
+  final TextEditingController _courseCodeController = TextEditingController();
+  final TextEditingController _courseNameController = TextEditingController();
   bool? isfaculty;
   String courseCode ='';
   String courseName = '';
@@ -34,7 +31,7 @@ class addCourseInputState extends State<addCourseInput> {
     // TODO: implement initState
     super.initState();
     userId=widget.userId;
-    isfaculty=widget.isfaculty!;
+    isfaculty=widget.isfaculty;
   }
 
   @override
@@ -42,14 +39,14 @@ class addCourseInputState extends State<addCourseInput> {
     return Scaffold(
         appBar: AppBar(
         backgroundColor: AppColor.violet,
-        title: Text('Add Course'), ),
+        title: const Text('Add Course'), ),
         body:SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.all(16.0),
             child: Column(
               //mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 TextField(
                   controller: _courseCodeController,
                   decoration: const InputDecoration(
@@ -65,7 +62,7 @@ class addCourseInputState extends State<addCourseInput> {
                     ),
                   ),
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 TextField(
                   controller: _courseNameController,
                   decoration: const InputDecoration(
@@ -81,7 +78,7 @@ class addCourseInputState extends State<addCourseInput> {
                     ),
                   ),
                 ),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 Container(
                   decoration: BoxDecoration(
                     border: Border.all(color: Colors.grey),
@@ -89,7 +86,7 @@ class addCourseInputState extends State<addCourseInput> {
                   ),
                 child: DropdownButton(
                   isExpanded: true,
-                    hint: Text('  Select course type'),
+                    hint: const Text('  Select course type'),
                     value:courseType,
                     onChanged: (newValue){
                         setState(() {
@@ -105,7 +102,7 @@ class addCourseInputState extends State<addCourseInput> {
                           ));
                     }).toList(),
                 )),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 Container(
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.grey),
@@ -113,7 +110,7 @@ class addCourseInputState extends State<addCourseInput> {
                     ),
                     child: DropdownButton(
                       isExpanded: true,
-                      hint: Text('  Select Credits'),
+                      hint: const Text('  Select Credits'),
                       value:totalCredits,
                       onChanged: (newValue){
                         setState(() {
@@ -129,7 +126,7 @@ class addCourseInputState extends State<addCourseInput> {
                             ));
                       }).toList(),
                     )),
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 Container(
                     decoration: BoxDecoration(
                         border: Border.all(color: Colors.grey),
@@ -137,7 +134,7 @@ class addCourseInputState extends State<addCourseInput> {
                     ),
                     child: DropdownButton(
                       isExpanded: true,
-                      hint: Text('  Select semester'),
+                      hint: const Text('  Select semester'),
                       value:semester,
                       onChanged: (newValue){
                         setState(() {
@@ -154,7 +151,7 @@ class addCourseInputState extends State<addCourseInput> {
                       }).toList(),
                     )),
 
-                SizedBox(height: 30),
+                const SizedBox(height: 30),
                 MaterialButton(
                   minWidth: double.infinity,
                   height:60,

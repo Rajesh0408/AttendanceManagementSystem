@@ -3,7 +3,7 @@ import 'dart:convert';
 import 'package:http/http.dart' as http;
 
 Future<bool> putForgotPassword(String userId, String password) async {
-  const url = 'http://10.0.2.2:5000/UpdatePassword'; // Use the appropriate endpoint
+  const url = 'http://10.10.51.107:5000/UpdatePassword'; // Use the appropriate endpoint
 
   final response = await  http.Client().put(
     Uri.parse(url),

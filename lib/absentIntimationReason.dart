@@ -1,12 +1,10 @@
 import 'dart:convert';
-import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:mailer/mailer.dart';
 import 'package:mailer/smtp_server/gmail.dart';
 import 'package:myapp/post/postAcceptReject.dart';
 
-import 'NavBar.dart';
 import 'absentIntimation.dart';
 import 'constants/colours.dart';
 
@@ -48,7 +46,7 @@ class absentIntimationReasonState extends State<absentIntimationReason> {
     http.Response response;
     try {
       response = await http
-          .get(Uri.parse('http://10.0.2.2:5000/ViewFormFaculty/$absent_id'));
+          .get(Uri.parse('http://10.10.51.107:5000/ViewFormFaculty/$absent_id'));
       if (response.statusCode == 200) {
         setState(() {
           studentDetails = json.decode(response.body);
@@ -60,8 +58,8 @@ class absentIntimationReasonState extends State<absentIntimationReason> {
     }
   }
 
-  void _sendOTPEmail(String email_id) async {
-    email_id = email_id;
+  void _sendOTPEmail(String emailId) async {
+    emailId = emailId;
     String username = 'rajesh.a0408@gmail.com'; // Replace with your email
     String password = 'oknw wawm aqor iqlh'; // Replace with your email password
 
@@ -69,21 +67,21 @@ class absentIntimationReasonState extends State<absentIntimationReason> {
 
     final message = Message()
       ..from = Address(username, 'Rajesh')
-      ..recipients.add(email_id)
+      ..recipients.add(emailId)
       ..subject = 'Password Reset OTP'
       ..text = 'Your OTP for password reset is: ';
 
     try {
       await send(message, smtpServer);
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('Mail sent Successfully'),
         ),
       );
     } catch (e) {
       print('Error sending OTP email: $e');
       ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
+        const SnackBar(
           content: Text('Mail doesn\'t sent Successfully'),
         ),
       );
@@ -111,30 +109,30 @@ class absentIntimationReasonState extends State<absentIntimationReason> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(height: 50.0),
+              const SizedBox(height: 50.0),
               Text(
                 "\t\t\t\t\t\t\t\t\t\tCourse code:   ${studentDetails?['course_code']}",
-                style: TextStyle(fontSize: 18.0),
+                style: const TextStyle(fontSize: 18.0),
               ),
-              SizedBox(height: 30.0),
+              const SizedBox(height: 30.0),
               Text(
                 "\t\t\t\t\t\t\t\t\t\tRoll number:  ${studentDetails?['user_id']}",
-                style: TextStyle(fontSize: 18.0),
+                style: const TextStyle(fontSize: 18.0),
               ),
-              SizedBox(height: 30.0),
+              const SizedBox(height: 30.0),
               Text(
                 "\t\t\t\t\t\t\t\t\t\tDate:   ${studentDetails?['absent_date']}",
-                style: TextStyle(fontSize: 18.0),
+                style: const TextStyle(fontSize: 18.0),
               ),
-              SizedBox(height: 30.0),
+              const SizedBox(height: 30.0),
               Text(
                 "\t\t\t\t\t\t\t\t\t\tNumber of hours: ${studentDetails?['absent_hour']}",
-                style: TextStyle(fontSize: 18.0),
+                style: const TextStyle(fontSize: 18.0),
               ),
-              SizedBox(height: 30.0),
+              const SizedBox(height: 30.0),
               Center(
                 child: Container(
-                  padding: EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(10.0),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       color: AppColor.orangeCardd),
@@ -144,14 +142,14 @@ class absentIntimationReasonState extends State<absentIntimationReason> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         "\nReason: ",
                         style: TextStyle(fontSize: 18.0, color: Colors.black),
                       ),
                       Center(
                           child: Text(
                         "\n  ${studentDetails?['absent_reason']}",
-                        style: TextStyle(fontSize: 18.0, color: Colors.black),
+                        style: const TextStyle(fontSize: 18.0, color: Colors.black),
                       )),
                     ],
                   ),
@@ -181,9 +179,9 @@ class absentIntimationReasonState extends State<absentIntimationReason> {
                       ));
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: Colors.redAccent, // Set the background color
+                  backgroundColor: Colors.redAccent, // Set the background color
                 ),
-                child: Text('Reject'),
+                child: const Text('Reject'),
               ),
             if (!(status == 0 || status == 1))
               ElevatedButton(
@@ -199,9 +197,9 @@ class absentIntimationReasonState extends State<absentIntimationReason> {
                   //_sendOTPEmail(studentDetails?['email_id']);
                 },
                 style: ElevatedButton.styleFrom(
-                  primary: AppColor.button, // Set the background color
+                  backgroundColor: AppColor.button, // Set the background color
                 ),
-                child: Text('Accept'),
+                child: const Text('Accept'),
               ),
           ],
         ),

@@ -5,7 +5,7 @@ Future<List?> fetchCoursesUsingSem(String sem) async {
   List courseCodes;
   http.Response response;
   try {
-    response = await http.get(Uri.parse('http://10.0.2.2:5000/CoursesInSem/$sem'));
+    response = await http.get(Uri.parse('http://10.10.51.107:5000/CoursesInSem/$sem'));
     if (response.statusCode == 200) {
       courseCodes = json.decode(response.body);
 

@@ -1,7 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-import 'logIn_faculty.dart';
 import 'logIn_student.dart';
 import 'main.dart';
 import 'constants/colours.dart';
@@ -9,6 +7,8 @@ import 'constants/colours.dart';
 
 
 class FacultyStudent extends StatefulWidget {
+  const FacultyStudent({super.key});
+
   @override
   FacultyStudentState createState() => FacultyStudentState();
 }
@@ -31,7 +31,7 @@ class FacultyStudentState extends State<FacultyStudent> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text('Attendance Manager'),
+        title: const Text('Attendance Manager'),
         backgroundColor: AppColor.appbar,
       ),
       body: Center(
@@ -39,9 +39,9 @@ class FacultyStudentState extends State<FacultyStudent> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            Text("Choose your role",
+            const Text("Choose your role",
                 style: TextStyle(fontSize: 30.0, fontStyle: FontStyle.italic)),
-            SizedBox(height: 40),
+            const SizedBox(height: 40),
             // Faculty image with onTap
             GestureDetector(
               onTap: () {
@@ -52,8 +52,8 @@ class FacultyStudentState extends State<FacultyStudent> {
               },
               child: Column(
                 children: [
-                  Text("\t Faculty", style: TextStyle(fontSize: 30.0)),
-                  SizedBox(height: 20),
+                  const Text("\t Faculty", style: TextStyle(fontSize: 30.0)),
+                  const SizedBox(height: 20),
                   Image.asset(
                     'lib/assets/faculty.png',
                     width: 150,
@@ -62,7 +62,7 @@ class FacultyStudentState extends State<FacultyStudent> {
                 ],
               ),
             ),
-            SizedBox(height: 70),
+            const SizedBox(height: 70),
             // Student image with onTap
             GestureDetector(
               onTap: () {
@@ -73,8 +73,8 @@ class FacultyStudentState extends State<FacultyStudent> {
               },
               child: Column(
                 children: [
-                  Text("\t Student", style: TextStyle(fontSize: 30.0)),
-                  SizedBox(height: 20),
+                  const Text("\t Student", style: TextStyle(fontSize: 30.0)),
+                  const SizedBox(height: 20),
                   Image.asset(
                     'lib/assets/student.png',
                     width: 150,

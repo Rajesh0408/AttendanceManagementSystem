@@ -1,15 +1,13 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:myapp/takeAttendance.dart';
-import 'NavBar.dart';
 import 'constants/colours.dart';
 
 class ViewAttendanceForAdvisor extends StatefulWidget {
   String userId;
 
   ViewAttendanceForAdvisor(
-    this.userId,
+    this.userId, {super.key}
   );
 
   @override
@@ -33,16 +31,16 @@ class ViewAttendanceForAdvisorState extends State<ViewAttendanceForAdvisor> {
     http.Response response;
     try {
       response = await http.get(
-          Uri.parse('http://10.0.2.2:5000/OverallAttendanceforAdvisor/102114'));
+          Uri.parse('http://10.10.51.107:5000/OverallAttendanceforAdvisor/$userId'));
       if (response.statusCode == 200) {
         setState(() {
           studentDetails = json.decode(response.body);
           print(studentDetails);
           courseList.clear();
           for (int i = 0; i < studentDetails![0]['attendance'].length; i++) {
-            var course_name =
+            var courseName =
                 studentDetails![0]['attendance'][i]['course_name'];
-            courseList.add(course_name);
+            courseList.add(courseName);
           }
           print(courseList);
         });
@@ -58,7 +56,7 @@ class ViewAttendanceForAdvisorState extends State<ViewAttendanceForAdvisor> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: AppColor.violet,
-        title: Text('Overall Attendance'),
+        title: const Text('Overall Attendance'),
       ),
       //drawer: NavBar(userId,isfaculty!),
       body: SingleChildScrollView(
@@ -87,7 +85,7 @@ class ViewAttendanceForAdvisorState extends State<ViewAttendanceForAdvisor> {
     columns.addAll(courseList.map((courseName) {
       return DataColumn(
         label: Text(courseName,
-            style: TextStyle(fontWeight: FontWeight.w900, fontSize: 18)),
+            style: const TextStyle(fontWeight: FontWeight.w900, fontSize: 18)),
       );
     }).toList());
 
@@ -109,7 +107,7 @@ class ViewAttendanceForAdvisorState extends State<ViewAttendanceForAdvisor> {
       dataCells.addAll(
         attendanceData.map<DataCell>((attendance) {
           return DataCell(
-            Text(attendance['percentage'].toString() + "%"),
+            Text("${attendance['percentage']}%"),
           );
         }).toList(),
       );

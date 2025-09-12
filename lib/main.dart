@@ -5,9 +5,6 @@ import 'package:myapp/post/postLoginDetails.dart';
 import 'ForgotPassword.dart';
 import 'HomePageFaculty.dart';
 import 'HomePageStudent.dart';
-import 'NavBar.dart';
-import 'listClass.dart';
-import 'overallAttendanceStudent.dart';
 
 
 void main() {
@@ -17,6 +14,8 @@ void main() {
   ));
 }
 class LoginPageFaculty extends StatefulWidget {
+  const LoginPageFaculty({super.key});
+
   @override
   _LoginPageState createState() => _LoginPageState();
 }
@@ -35,11 +34,11 @@ class _LoginPageState extends State<LoginPageFaculty> {
     return Scaffold(
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text('Attendance Manager'),
+        title: const Text('Attendance Manager'),
         backgroundColor: AppColor.blue,
       ),
       body: SingleChildScrollView(child:Container(
-        padding: EdgeInsets.symmetric(horizontal: 20),
+        padding: const EdgeInsets.symmetric(horizontal: 20),
         height: MediaQuery.of(context).size.height,
         width: double.infinity,
         child: Column(
@@ -52,15 +51,15 @@ class _LoginPageState extends State<LoginPageFaculty> {
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                 ),),
-                SizedBox(height: 20,),
+                const SizedBox(height: 20,),
                 Text("Welcome back ! Login with your credentials",style: TextStyle(
                   fontSize: 15,
                   color: Colors.grey[700],
                 ),),
-                SizedBox(height: 30,)
+                const SizedBox(height: 30,)
               ],
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             makeInput(
               label: "User ID",
               controller: userIdController,
@@ -76,7 +75,7 @@ class _LoginPageState extends State<LoginPageFaculty> {
                 });
               },
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Container(
               child: MaterialButton(
                 minWidth: double.infinity,
@@ -97,8 +96,9 @@ class _LoginPageState extends State<LoginPageFaculty> {
                         //NavBar(userId,password);
                       }
                       else{
+                        print(result?['role']);
                         print("Login_faculty:"+result?['user_name']);
-                        if(result?['role']=="faculty&advisor"){
+                        if(result?['role']=="Faculty & Advisor"){
                           Navigator.push(context, MaterialPageRoute(
                               builder: (context) => HomePageFaculty(userId,false,result?['user_name'])));
                           ScaffoldMessenger.of(context).showSnackBar(
@@ -137,7 +137,7 @@ class _LoginPageState extends State<LoginPageFaculty> {
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(40),
                 ),
-                child: Text(
+                child: const Text(
                   "Login",
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
@@ -147,11 +147,11 @@ class _LoginPageState extends State<LoginPageFaculty> {
                 ),
               ),
             ),
-            SizedBox(height: 3),
+            const SizedBox(height: 3),
             TextButton(
-              child: Padding(
-                padding: const EdgeInsets.only(left: 185.0),
-                child: const Text("Forgot password?",style: TextStyle(
+              child: const Padding(
+                padding: EdgeInsets.only(left: 185.0),
+                child: Text("Forgot password?",style: TextStyle(
                   fontWeight: FontWeight.w600,
                   fontSize: 17,
                 ),),
@@ -159,23 +159,23 @@ class _LoginPageState extends State<LoginPageFaculty> {
               onPressed: () {
                 Navigator.push(
                   context,
-                  MaterialPageRoute(builder: (context) => ForgotPassword()),
+                  MaterialPageRoute(builder: (context) => const ForgotPassword()),
                 );
               },
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Text(
               errorText,
-              style: TextStyle(
+              style: const TextStyle(
                 color: Colors.red,
                 fontSize: 14,
               ),
             ),
-            SizedBox(height: 10),
+            const SizedBox(height: 10),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text("Don't have an account?"),
+                const Text("Don't have an account?"),
                 GestureDetector(
                   child: TextButton(
                     child: const Text("SignUp",style: TextStyle(
@@ -213,7 +213,7 @@ class _LoginPageState extends State<LoginPageFaculty> {
             errorText.startsWith('Invalid') ? Colors.red : Colors.black87,
           ),
         ),
-        SizedBox(height: 5),
+        const SizedBox(height: 5),
         TextField(
           controller: controller,
           obscureText: obscureText,
@@ -236,7 +236,7 @@ class _LoginPageState extends State<LoginPageFaculty> {
           },
           decoration: InputDecoration(
             counterText: '',
-            contentPadding: EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+            contentPadding: const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
             enabledBorder: OutlineInputBorder(
               borderSide: BorderSide(
                 color:
@@ -251,7 +251,7 @@ class _LoginPageState extends State<LoginPageFaculty> {
             ),
           ),
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
       ],
     );
   }
@@ -275,7 +275,7 @@ class _LoginPageState extends State<LoginPageFaculty> {
             errorText.startsWith('Invalid') ? Colors.red : Colors.black87,
           ),
         ),
-        SizedBox(height: 5),
+        const SizedBox(height: 5),
         Stack(
           alignment: Alignment.centerRight,
           children: [
@@ -289,7 +289,7 @@ class _LoginPageState extends State<LoginPageFaculty> {
               decoration: InputDecoration(
                 counterText: '',
                 contentPadding:
-                EdgeInsets.symmetric(vertical: 0, horizontal: 10),
+                const EdgeInsets.symmetric(vertical: 0, horizontal: 10),
                 enabledBorder: OutlineInputBorder(
                   borderSide: BorderSide(
                     color: errorText.startsWith('Invalid')
@@ -315,7 +315,7 @@ class _LoginPageState extends State<LoginPageFaculty> {
             ),
           ],
         ),
-        SizedBox(height: 20),
+        const SizedBox(height: 20),
       ],
     );
   }

@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:myapp/post/postSignUpData.dart';
 import 'constants/colours.dart';
-import 'logIn_faculty.dart';
-import 'logIn_student.dart';
 import 'main.dart';
 
 class SignupFaculty extends StatefulWidget {
+  const SignupFaculty({super.key});
+
   @override
   _SignupPageState createState() => _SignupPageState();
 }
 
 class _SignupPageState extends State<SignupFaculty> {
-  TextEditingController _usernameController = TextEditingController();
-  TextEditingController _userIdController = TextEditingController();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
-  TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _userIdController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
 
   bool _isUsernameValid = true;
   bool _isUserIdValid = true;
@@ -50,7 +50,7 @@ class _SignupPageState extends State<SignupFaculty> {
   String confirmPassword = '';
   String regunameerrorTextval = '';
 
-  String _errorMessage = '';
+  final String _errorMessage = '';
 
   @override
   Widget build(BuildContext context) {
@@ -58,7 +58,7 @@ class _SignupPageState extends State<SignupFaculty> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text('Attendance Manager'),
+        title: const Text('Attendance Manager'),
         backgroundColor: AppColor.blue,
       ),
       body: SingleChildScrollView(
@@ -90,7 +90,7 @@ class _SignupPageState extends State<SignupFaculty> {
               Container(
                   decoration: BoxDecoration(
                     border: Border.all(color: AppColor.blue),
-                    borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                    borderRadius: const BorderRadius.all(Radius.circular(4.0)),
                   ),
                   child: DropdownButton(
                     hint: const Text('  Role'),
@@ -123,7 +123,7 @@ class _SignupPageState extends State<SignupFaculty> {
                       Container(
                         decoration: BoxDecoration(
                           border: Border.all(color: AppColor.blue),
-                          borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                          borderRadius: const BorderRadius.all(Radius.circular(4.0)),
                         ),
                         child: DropdownButton(
                           isExpanded: true,
@@ -145,13 +145,13 @@ class _SignupPageState extends State<SignupFaculty> {
                           }).toList(),
                         ),
                       ),
-                      SizedBox(
+                      const SizedBox(
                         height: 30,
                       ),
                       Container(
                         decoration: BoxDecoration(
                           border: Border.all(color: AppColor.blue),
-                          borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                          borderRadius: const BorderRadius.all(Radius.circular(4.0)),
                         ),
                         child: DropdownButton(
                           isExpanded: true,

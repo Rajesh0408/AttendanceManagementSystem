@@ -1,9 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'NavBar.dart';
 import 'ViewFormsReasonByStudent.dart';
-import 'absentIntimationReason.dart';
 import 'constants/colours.dart';
 
 class ViewFormsByStudent extends StatefulWidget{
@@ -30,7 +28,7 @@ class ViewFormsByStudentState extends State<ViewFormsByStudent> {
   Future fetchData() async {
     http.Response response;
     try {
-      response = await http.get(Uri.parse('http://10.0.2.2:5000/AbsenceListStudent/$userId'));
+      response = await http.get(Uri.parse('http://10.10.51.107:5000/AbsenceListStudent/$userId'));
       if (response.statusCode == 200) {
         setState(() {
           form = json.decode(response.body);
@@ -54,7 +52,7 @@ class ViewFormsByStudentState extends State<ViewFormsByStudent> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.orange,
-        title: Text('Absent Intimation Forms'),
+        title: const Text('Absent Intimation Forms'),
       ),
       //drawer: NavBar(userId,isfaculty!),
       body: ListView.builder(reverse:false, itemBuilder: (context, index) {
@@ -76,13 +74,13 @@ class ViewFormsByStudentState extends State<ViewFormsByStudent> {
           title: Row(
             children: [
               Text("${form?[index]['course_name'] ?? 'N/A'}"),
-              Spacer(), // Add this to push the status to the right
+              const Spacer(), // Add this to push the status to the right
               if (form?[index]["status"] == -1)
-                Text("Pending", style: TextStyle(fontWeight: FontWeight.bold),),
+                const Text("Pending", style: TextStyle(fontWeight: FontWeight.bold),),
               if (form?[index]["status"] == 0)
-                Text("Rejected", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),),
+                const Text("Rejected", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),),
               if (form?[index]["status"] == 1)
-                Text("Accepted", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green),),
+                const Text("Accepted", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green),),
 
             ],
           ),

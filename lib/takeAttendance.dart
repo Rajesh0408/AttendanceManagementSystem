@@ -2,18 +2,15 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:counter_button/counter_button.dart';
 import 'package:http/http.dart' as http;
-import 'package:myapp/addStudent.dart';
 import 'package:myapp/checkAttendance.dart';
-import 'NavBar.dart';
 import 'constants/colours.dart';
-import 'OverallAttendance.dart';
 
 class takeAttendance extends StatefulWidget{
   String courseCode;
   String userId;
   bool isfaculty;
   String? name;
-  takeAttendance(this.courseCode,this.userId, this.isfaculty, this.name);
+  takeAttendance(this.courseCode,this.userId, this.isfaculty, this.name, {super.key});
     @override
     tAttendance createState() => tAttendance();
 }
@@ -24,7 +21,7 @@ class tAttendance extends State<takeAttendance> {
   bool? isfaculty;
   String? name;
 List<dynamic>? studentDetails;
-int _selectedIndex = 0;
+final int _selectedIndex = 0;
 DateTime selectedDate = DateTime.now();
 int _counterValue=0;
 late List<bool> switchStates;
@@ -48,8 +45,8 @@ List<Map<String, dynamic>> selectedStudents = [];
   Future fetchData() async {
     http.Response response;
     try {
-      response = await http.get(Uri.parse('http://10.0.2.2:5000/TakeAttendance/$courseCode'));
-      //response = await http.get(Uri.parse('http://10.0.2.2:5000/addStudent'));
+      response = await http.get(Uri.parse('http://10.10.51.107:5000/TakeAttendance/$courseCode'));
+      //response = await http.get(Uri.parse('http://10.10.51.107:5000/addStudent'));
     if (response.statusCode == 200) {
       setState(() {
          studentDetails = json.decode(response.body);
@@ -97,7 +94,7 @@ List<Map<String, dynamic>> selectedStudents = [];
                      _selectDate(context);
                    },
                  ),
-                 Text("\n${Date}"),
+                 Text("\n$Date"),
                  const Padding(padding: EdgeInsets.only(left: 30.0,top: 20.0,right: 20.0)),
                  const Text("\nHours:\t\t"),
                  CounterButton(
@@ -144,11 +141,11 @@ List<Map<String, dynamic>> selectedStudents = [];
                      ));
                  }
                  },
-
-                  child: const Text("CHECK ABSENTEES"),
                  height: 50,
                  color: AppColor.blue,
                  shape: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+
+                  child: const Text("CHECK ABSENTEES"),
 
                ),
              ),

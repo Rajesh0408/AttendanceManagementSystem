@@ -1,7 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'NavBar.dart';
 import 'absentIntimationReason.dart';
 import 'constants/colours.dart';
 
@@ -29,7 +28,7 @@ class absentIntimationState extends State<absentIntimation> {
   Future fetchData() async {
     http.Response response;
     try {
-      response = await http.get(Uri.parse('http://10.0.2.2:5000/AbsenceListFaculty/$userId'));
+      response = await http.get(Uri.parse('http://10.10.51.107:5000/AbsenceListFaculty/$userId'));
       if (response.statusCode == 200) {
         setState(() {
           form = json.decode(response.body);
@@ -54,7 +53,7 @@ class absentIntimationState extends State<absentIntimation> {
     return Scaffold(
         appBar: AppBar(
         backgroundColor: AppColor.orange,
-        title: Text('Absent Intimation Forms'),
+        title: const Text('Absent Intimation Forms'),
     ),
     //drawer: NavBar(userId,isfaculty!),
     body: ListView.builder(reverse:false, itemBuilder: (context, index) {
@@ -76,13 +75,13 @@ class absentIntimationState extends State<absentIntimation> {
         title: Row(
           children: [
             Text("${form?[index]['user_name'] ?? 'N/A'}"),
-            Spacer(), // Add this to push the status to the right
+            const Spacer(), // Add this to push the status to the right
             if (form?[index]["status"] == -1)
-              Text("Not seen", style: TextStyle(fontWeight: FontWeight.bold),),
+              const Text("Not seen", style: TextStyle(fontWeight: FontWeight.bold),),
             if (form?[index]["status"] == 0)
-              Text("Rejected", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),),
+              const Text("Rejected", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.red),),
             if (form?[index]["status"] == 1)
-              Text("Accepted", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green),),
+              const Text("Accepted", style: TextStyle(fontWeight: FontWeight.bold, color: Colors.green),),
 
           ],
         ),

@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:myapp/put/putForgotPassword.dart';
 
 
-import 'logIn_faculty.dart';
 import 'constants/colours.dart';
 import 'main.dart';
 
@@ -127,12 +126,12 @@ class _ForgotPasswordNewPasswordState extends State<ForgotPasswordNewPassword> {
                         }else{
                           if (await putForgotPassword(userId?? "",newPassword)) {
                             Navigator.push(context, MaterialPageRoute(builder: (context) => LoginPageFaculty(),));
-                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                               content: Text('Password updated successfully'),
                               duration: Duration(seconds: 2),
                             ));
                           } else {
-                            ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                            ScaffoldMessenger.of(context).showSnackBar(const SnackBar(
                               content: Text("Password doesn't updated"),
                               duration: Duration(seconds: 2),
                             ));

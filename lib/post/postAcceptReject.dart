@@ -1,8 +1,7 @@
 import 'dart:convert';
-import 'dart:ffi';
 import 'package:http/http.dart' as http;
 
-Future<void> postAcceptReject(int absent_id, int status) async {
+Future<void> postAcceptReject(int absentId, int status) async {
   print(status);
   Map<String,dynamic> data={
     'status': status
@@ -10,7 +9,7 @@ Future<void> postAcceptReject(int absent_id, int status) async {
   String jsonData = json.encode(data);
   print(jsonData);
   http.Response response = await http.post(
-    Uri.parse('http://10.0.2.2:5000/UpdateStatus/$absent_id'), // Replace with your actual API endpoint
+    Uri.parse('http://10.10.51.107:5000/UpdateStatus/$absentId'), // Replace with your actual API endpoint
     headers: <String, String>{
       'Content-Type': 'application/json',
     },

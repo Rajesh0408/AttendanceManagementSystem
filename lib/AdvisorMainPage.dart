@@ -3,15 +3,13 @@ import 'package:myapp/viewAttendanceForAdvisor.dart';
 
 
 import 'EnrollStudent.dart';
-import 'NavBar.dart';
 import 'addCourseInput.dart';
-import 'addStudent.dart';
 import 'constants/colours.dart';
 
 class AdvisorMainPage extends StatefulWidget {
   String userId;
   bool isfaculty;
-  AdvisorMainPage(this.userId, this.isfaculty);
+  AdvisorMainPage(this.userId, this.isfaculty, {super.key});
 
   @override
   State<AdvisorMainPage> createState() => _AdvisorMainPageState();
@@ -32,7 +30,7 @@ class _AdvisorMainPageState extends State<AdvisorMainPage> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.violet,
-        title: Text('Attendance Manager'),
+        title: const Text('Attendance Manager'),
       ),
       //drawer: NavBar(userId,isfaculty!),
       body: Column(

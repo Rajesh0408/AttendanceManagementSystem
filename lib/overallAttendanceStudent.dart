@@ -1,22 +1,18 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:myapp/takeAttendance.dart';
-import 'NavBar.dart';
-import 'NavBarStudent.dart';
-import 'absentIntimationStudent.dart';
 import 'constants/colours.dart';
 
 class overallAttendanceStudent extends StatefulWidget{
   String userId;
-  overallAttendanceStudent(this.userId);
+  overallAttendanceStudent(this.userId, {super.key});
 
   @override
   OverallAttendanceStudentState createState() => OverallAttendanceStudentState();
 }
 
 class OverallAttendanceStudentState extends State<overallAttendanceStudent> {
-  int _selectedIndex=1;
+  final int _selectedIndex=1;
   String userId='';
   List<dynamic>? studentDetails;
   @override
@@ -30,8 +26,8 @@ class OverallAttendanceStudentState extends State<overallAttendanceStudent> {
   Future fetchData() async {
     http.Response response;
     try {
-      //response = await http.post(Uri.parse('http://10.0.2.2:5000/takeAttendance'));
-      response = await http.get(Uri.parse('http://10.0.2.2:5000/OverallAttendanceforStudent/$userId'));
+      //response = await http.post(Uri.parse('http://10.10.51.107:5000/takeAttendance'));
+      response = await http.get(Uri.parse('http://10.10.51.107:5000/OverallAttendanceforStudent/$userId'));
       if (response.statusCode == 200) {
         setState(() {
           studentDetails = json.decode(response.body);
@@ -48,7 +44,7 @@ class OverallAttendanceStudentState extends State<overallAttendanceStudent> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: AppColor.orange,
-        title: Text('Overall Attendance'),
+        title: const Text('Overall Attendance'),
       ),
       //drawer: NavBarStudent(),
       body :  SingleChildScrollView(
@@ -62,10 +58,10 @@ class OverallAttendanceStudentState extends State<overallAttendanceStudent> {
   }
   List<DataColumn> _createColumns() {
     return [
-      DataColumn(label: Text('Course Code')),
-      DataColumn(label: Text('Course Name')),
-      DataColumn(label: Text("Present/Total")),
-      DataColumn(label: Text("%GE"))
+      const DataColumn(label: Text('Course Code')),
+      const DataColumn(label: Text('Course Name')),
+      const DataColumn(label: Text("Present/Total")),
+      const DataColumn(label: Text("%GE"))
     ];
   }
   List<DataRow> _createRows() {
@@ -76,8 +72,7 @@ class OverallAttendanceStudentState extends State<overallAttendanceStudent> {
       return DataRow(cells: [
         DataCell(Text(studentDetails![index]['course_code'].toString())),
         DataCell(Text(studentDetails![index]['course_name'].toString())),
-        DataCell(Center(child: Text(studentDetails![index]['present_hours'].toString()
-            +" / "+ studentDetails![index]['total_hours'].toString()))),
+        DataCell(Center(child: Text("${studentDetails![index]['present_hours']} / ${studentDetails![index]['total_hours']}"))),
         DataCell(Text(studentDetails![index]['percentage'].toString())),
       ]
       );

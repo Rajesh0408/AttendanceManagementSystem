@@ -1,9 +1,6 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
 import 'package:myapp/listClass.dart';
-import 'package:myapp/post/postCourseDetails.dart';
 import 'package:myapp/post/postCoursesEnrolledByFaculty.dart';
 import 'constants/colours.dart';
 
@@ -13,7 +10,7 @@ class enrollCourseByFaculty extends StatefulWidget{
   String userId;
   bool isfaculty;
   String? name;
-  enrollCourseByFaculty(this.userId,this.isfaculty,this.name);
+  enrollCourseByFaculty(this.userId,this.isfaculty,this.name, {super.key});
   @override
   addCourseInputState createState() => addCourseInputState();
 }
@@ -40,21 +37,21 @@ class addCourseInputState extends State<enrollCourseByFaculty> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.blue,
-        title: Text('Enroll Course'), ),
+        title: const Text('Enroll Course'), ),
       body:SingleChildScrollView(
         child: Padding(
           padding: const EdgeInsets.all(16.0),
           child: Column(
             children: [
-              SizedBox(height: 40.0,),
+              const SizedBox(height: 40.0,),
               Container(
               decoration: BoxDecoration(
               border: Border.all(color: AppColor.blue),
-              borderRadius: BorderRadius.all(Radius.circular(4.0)),
+              borderRadius: const BorderRadius.all(Radius.circular(4.0)),
               ),
                   child: DropdownButton(
                     isExpanded: true,
-                    hint: Text('  Select semester'),
+                    hint: const Text('  Select semester'),
                     value: chooseSem,
                     onChanged: (newValue) async {
                       setState(() {
@@ -71,15 +68,15 @@ class addCourseInputState extends State<enrollCourseByFaculty> {
                   }).toList(),
                   ),
                 ),
-              SizedBox(height: 40.0,),
+              const SizedBox(height: 40.0,),
               Container(
                 decoration: BoxDecoration(
                   border: Border.all(color: AppColor.blue),
-                  borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                  borderRadius: const BorderRadius.all(Radius.circular(4.0)),
                 ),
                   child: DropdownButton(
                     isExpanded: true,
-                    hint: Text('  Select Course'),
+                    hint: const Text('  Select Course'),
                     value: chooseCourse,
                     onChanged: (newValue){
                       setState(() {
@@ -95,9 +92,9 @@ class addCourseInputState extends State<enrollCourseByFaculty> {
                   }).toList(),
                   ),
                 ),
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
 
-              SizedBox(height: 30),
+              const SizedBox(height: 30),
               MaterialButton(
                 minWidth: double.infinity,
                 height:60,
@@ -111,7 +108,7 @@ class addCourseInputState extends State<enrollCourseByFaculty> {
                       ),
                     );
                   }else{
-                    print("userId:"+userId);
+                    print("userId:$userId");
                     bool result=await postCoursesEnrolledByFaculty(userId,chooseCourse!);
                     if(result){
                       Navigator.push(context, MaterialPageRoute(builder: (context) => listClass(userId, isfaculty!,name),));

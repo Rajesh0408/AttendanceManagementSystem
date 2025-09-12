@@ -1,13 +1,7 @@
 import 'dart:convert';
-import 'dart:ffi';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:mailer/mailer.dart';
-import 'package:mailer/smtp_server/gmail.dart';
-import 'package:myapp/post/postAcceptReject.dart';
 
-import 'NavBar.dart';
-import 'absentIntimation.dart';
 import 'constants/colours.dart';
 
 class ViewFormsReasonByStudent extends StatefulWidget {
@@ -51,7 +45,7 @@ class ViewFormsReasonByStudentState extends State<ViewFormsReasonByStudent> {
     http.Response response;
     try {
       response = await http
-          .get(Uri.parse('http://10.0.2.2:5000/ViewFormFaculty/$absent_id'));
+          .get(Uri.parse('http://10.10.51.107:5000/ViewFormFaculty/$absent_id'));
       if (response.statusCode == 200) {
         setState(() {
           studentDetails = json.decode(response.body);
@@ -85,26 +79,26 @@ class ViewFormsReasonByStudentState extends State<ViewFormsReasonByStudent> {
             crossAxisAlignment: CrossAxisAlignment.start,
             mainAxisAlignment: MainAxisAlignment.start,
             children: [
-              SizedBox(height: 50.0),
+              const SizedBox(height: 50.0),
               Text(
                 "\t\t\t\t\t\t\t\t\t\tCourse code:   ${studentDetails?['course_code']}",
-                style: TextStyle(fontSize: 18.0),
+                style: const TextStyle(fontSize: 18.0),
               ),
 
-              SizedBox(height: 30.0),
+              const SizedBox(height: 30.0),
               Text(
                 "\t\t\t\t\t\t\t\t\t\tDate:   ${studentDetails?['absent_date']}",
-                style: TextStyle(fontSize: 18.0),
+                style: const TextStyle(fontSize: 18.0),
               ),
-              SizedBox(height: 30.0),
+              const SizedBox(height: 30.0),
               Text(
                 "\t\t\t\t\t\t\t\t\t\tNumber of hours: ${studentDetails?['absent_hour']}",
-                style: TextStyle(fontSize: 18.0),
+                style: const TextStyle(fontSize: 18.0),
               ),
-              SizedBox(height: 30.0),
+              const SizedBox(height: 30.0),
               Center(
                 child: Container(
-                  padding: EdgeInsets.all(10.0),
+                  padding: const EdgeInsets.all(10.0),
                   decoration: BoxDecoration(
                       borderRadius: BorderRadius.circular(20),
                       color: AppColor.orangeCardd),
@@ -114,14 +108,14 @@ class ViewFormsReasonByStudentState extends State<ViewFormsReasonByStudent> {
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      Text(
+                      const Text(
                         "\nReason: ",
                         style: TextStyle(fontSize: 18.0, color: Colors.black),
                       ),
                       Center(
                           child: Text(
                             "\n  ${studentDetails?['absent_reason']}",
-                            style: TextStyle(fontSize: 18.0, color: Colors.black),
+                            style: const TextStyle(fontSize: 18.0, color: Colors.black),
                           )),
                     ],
                   ),

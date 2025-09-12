@@ -1,8 +1,6 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:myapp/takeAttendance.dart';
-import 'NavBar.dart';
 import 'constants/colours.dart';
 
 class OverallAttendance extends StatefulWidget{
@@ -16,7 +14,7 @@ class OverallAttendance extends StatefulWidget{
 }
 
 class OverallAttendanceState extends State<OverallAttendance> {
-  int _selectedIndex=1;
+  final int _selectedIndex=1;
   String courseCode='';
   String userId='';
   bool? isfaculty;
@@ -26,7 +24,7 @@ class OverallAttendanceState extends State<OverallAttendance> {
     // TODO: implement initState
     super.initState();
     userId=widget.userId;
-    isfaculty=widget.isfaculty!;
+    isfaculty=widget.isfaculty;
     courseCode=widget.courseCode;
     fetchData();
   }
@@ -34,8 +32,8 @@ class OverallAttendanceState extends State<OverallAttendance> {
   Future fetchData() async {
     http.Response response;
     try {
-      //response = await http.post(Uri.parse('http://10.0.2.2:5000/takeAttendance'));
-      response = await http.get(Uri.parse('http://10.0.2.2:5000/OverallAttendanceforCourse/$courseCode'));
+      //response = await http.post(Uri.parse('http://10.10.51.107:5000/takeAttendance'));
+      response = await http.get(Uri.parse('http://10.10.51.107:5000/OverallAttendanceforCourse/$courseCode'));
       if (response.statusCode == 200) {
         setState(() {
           studentDetails = json.decode(response.body);
@@ -53,7 +51,7 @@ class OverallAttendanceState extends State<OverallAttendance> {
       resizeToAvoidBottomInset: false,
         appBar: AppBar(
         backgroundColor: AppColor.turquoise,
-        title: Text('Overall Attendance'),
+        title: const Text('Overall Attendance'),
     ),
     //drawer: NavBar(userId,isfaculty!),
     body:  SingleChildScrollView(
@@ -102,10 +100,10 @@ class OverallAttendanceState extends State<OverallAttendance> {
   }
   List<DataColumn> _createColumns() {
     return [
-      DataColumn(label: Text('RollNumber',style: TextStyle(fontWeight: FontWeight.w900,fontSize: 18),)),
-      DataColumn(label: Text('Name',style: TextStyle(fontWeight: FontWeight.w900,fontSize: 18),)),
-      DataColumn(label: Text("Present/Total",style: TextStyle(fontWeight: FontWeight.w900,fontSize: 18),)),
-      DataColumn(label: Text("%GE",style: TextStyle(fontWeight: FontWeight.w900,fontSize: 18),))
+      const DataColumn(label: Text('RollNumber',style: TextStyle(fontWeight: FontWeight.w900,fontSize: 18),)),
+      const DataColumn(label: Text('Name',style: TextStyle(fontWeight: FontWeight.w900,fontSize: 18),)),
+      const DataColumn(label: Text("Present/Total",style: TextStyle(fontWeight: FontWeight.w900,fontSize: 18),)),
+      const DataColumn(label: Text("%GE",style: TextStyle(fontWeight: FontWeight.w900,fontSize: 18),))
 
     ];
   }
@@ -117,8 +115,7 @@ class OverallAttendanceState extends State<OverallAttendance> {
       return DataRow(cells: [
         DataCell(Text(studentDetails![index]['user_id'].toString())),
         DataCell(Text(studentDetails![index]['user_name'].toString())),
-        DataCell(Center(child: Text(studentDetails![index]['present_hours'].toString() +" / "+
-            studentDetails![index]['total_class_hours'].toString()))),
+        DataCell(Center(child: Text("${studentDetails![index]['present_hours']} / ${studentDetails![index]['total_class_hours']}"))),
         DataCell(Text(studentDetails![index]['percentage'].toString()))
       ]
       );

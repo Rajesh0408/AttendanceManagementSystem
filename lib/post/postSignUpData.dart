@@ -12,8 +12,9 @@ Future<bool> postSignUpData(String role,String batch, String branch, String user
     'password': password
   };
   String jsonData = json.encode(courseDetails);
+  print(courseDetails);
   http.Response response = await http.post(
-    Uri.parse('http://10.0.2.2:5000/UserRegister'), // Replace with your actual API endpoint
+    Uri.parse('http://10.10.51.107:5000/UserRegister'), // Replace with your actual API endpoint
     headers: <String, String>{
       'Content-Type': 'application/json',
     },

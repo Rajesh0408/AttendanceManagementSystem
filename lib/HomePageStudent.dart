@@ -2,9 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:myapp/listClass.dart';
 import 'ViewFormsByStudent.dart';
 import 'constants/colours.dart';
-import 'AdvisorMainPage.dart';
-import 'NavBar.dart';
-import 'absentIntimation.dart';
 import 'absentIntimationStudent.dart';
 import 'main.dart';
 import 'overallAttendanceStudent.dart';
@@ -31,7 +28,7 @@ class _HomePageStudentState extends State<HomePageStudent> {
     userId = widget.userId;
     isfaculty = widget.isfaculty;
     name = widget.name;
-    print("userid in home page:" + userId!);
+    print("userid in home page:${userId!}");
   }
 
   @override
@@ -256,8 +253,8 @@ class _HomePageStudentState extends State<HomePageStudent> {
         context: context,
         builder: (BuildContext) {
           return AlertDialog(
-            title: Text('Logout'),
-            content: Text('Are you sure you want to log out?'),
+            title: const Text('Logout'),
+            content: const Text('Are you sure you want to log out?'),
             actions: [
               TextButton(
                   onPressed: () {

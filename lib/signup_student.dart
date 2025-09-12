@@ -1,21 +1,21 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/post/postSignUpData.dart';
 import 'package:myapp/post/postStudentSignUp.dart';
-import 'logIn_faculty.dart';
 import 'logIn_student.dart';
 import 'constants/colours.dart';
 
 class SignupStudent extends StatefulWidget {
+  const SignupStudent({super.key});
+
   @override
   _SignupPageState createState() => _SignupPageState();
 }
 
 class _SignupPageState extends State<SignupStudent> {
-  TextEditingController _usernameController = TextEditingController();
-  TextEditingController _userIdController = TextEditingController();
-  TextEditingController _emailController = TextEditingController();
-  TextEditingController _passwordController = TextEditingController();
-  TextEditingController _confirmPasswordController = TextEditingController();
+  final TextEditingController _usernameController = TextEditingController();
+  final TextEditingController _userIdController = TextEditingController();
+  final TextEditingController _emailController = TextEditingController();
+  final TextEditingController _passwordController = TextEditingController();
+  final TextEditingController _confirmPasswordController = TextEditingController();
 
   bool _isUsernameValid = true;
   bool _isUserIdValid = true;
@@ -32,7 +32,7 @@ class _SignupPageState extends State<SignupStudent> {
   String confirmPassword='';
   String regunameerrorTextval='';
 
-  String _errorMessage = '';
+  final String _errorMessage = '';
 
   @override
   Widget build(BuildContext context) {
@@ -41,7 +41,7 @@ class _SignupPageState extends State<SignupStudent> {
       resizeToAvoidBottomInset :false,
       appBar: AppBar(
         automaticallyImplyLeading: false,
-        title: Text('Attendance Manager'),
+        title: const Text('Attendance Manager'),
         backgroundColor: AppColor.appbar,
       ),
       body: SingleChildScrollView(child:Padding(
@@ -114,8 +114,8 @@ class _SignupPageState extends State<SignupStudent> {
             ),
             // Display password requirement message
             if (!_isPasswordValid)
-              Padding(
-                padding: const EdgeInsets.only(top: 8.0),
+              const Padding(
+                padding: EdgeInsets.only(top: 8.0),
                 child: Text(
                   'Password should start with an uppercase letter and include alphabets, numerics, and special characters.',
                   style: TextStyle(color: Colors.red),
@@ -137,7 +137,7 @@ class _SignupPageState extends State<SignupStudent> {
                 });
               },
             ),
-            SizedBox(height: 20),
+            const SizedBox(height: 20),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 40),
               child: Container(
@@ -225,17 +225,17 @@ class _SignupPageState extends State<SignupStudent> {
     void Function(String value)? onChanged,
   }) {
     return Container(
-      margin: EdgeInsets.only(bottom: 16.0),
+      margin: const EdgeInsets.only(bottom: 16.0),
       child: TextField(
         controller: controller,
         decoration: InputDecoration(
           labelText: labelText,
           errorText: isValid ? null : 'Invalid $labelText',
-          errorStyle: TextStyle(color: Colors.red),
-          focusedBorder: OutlineInputBorder(
+          errorStyle: const TextStyle(color: Colors.red),
+          focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.green),
           ),
-          enabledBorder: OutlineInputBorder(
+          enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.green),
           ),
         ),
@@ -255,17 +255,17 @@ class _SignupPageState extends State<SignupStudent> {
     VoidCallback? onToggleVisibility,
   }) {
     return Container(
-      margin: EdgeInsets.only(bottom: 16.0),
+      margin: const EdgeInsets.only(bottom: 16.0),
       child: TextField(
         controller: controller,
         decoration: InputDecoration(
           labelText: labelText,
           errorText: isValid ? null : 'Invalid $labelText. Requirements...',
-          errorStyle: TextStyle(color: Colors.red),
-          focusedBorder: OutlineInputBorder(
+          errorStyle: const TextStyle(color: Colors.red),
+          focusedBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.green),
           ),
-          enabledBorder: OutlineInputBorder(
+          enabledBorder: const OutlineInputBorder(
             borderSide: BorderSide(color: Colors.green),
           ),
           suffixIcon: IconButton(
@@ -327,7 +327,7 @@ class _SignupPageState extends State<SignupStudent> {
 
   void _showSuccessSnackbar(BuildContext context) {
     ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
+      const SnackBar(
         content: Text('Successfully signed up!'),
         duration: Duration(seconds: 2),
       ),
@@ -338,7 +338,7 @@ class _SignupPageState extends State<SignupStudent> {
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(
         content: Text(message),
-        duration: Duration(seconds: 2),
+        duration: const Duration(seconds: 2),
         backgroundColor: Colors.red,
       ),
     );

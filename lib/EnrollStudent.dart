@@ -10,7 +10,7 @@ import 'get/GetCoursesUsingSem.dart';
 
 class EnrollStudent extends StatefulWidget {
   String? userId;
-  EnrollStudent(this.userId, {Key? key}) : super(key: key);
+  EnrollStudent(this.userId, {super.key});
 
   @override
   State<EnrollStudent> createState() => _EnrollStudentState();
@@ -32,7 +32,7 @@ class _EnrollStudentState extends State<EnrollStudent> {
     super.initState();
     list = [];
     userId = widget.userId;
-    print("usrid in enrollstudent" + userId!);
+    print("usrid in enrollstudent${userId!}");
     fetchData();
   }
 
@@ -40,7 +40,7 @@ class _EnrollStudentState extends State<EnrollStudent> {
     http.Response response;
     try {
       response = await http
-          .get(Uri.parse('http://10.0.2.2:5000/MyStudentList/$userId'));
+          .get(Uri.parse('http://10.10.51.107:5000/MyStudentList/$userId'));
       if (response.statusCode == 200) {
         setState(() {
           studentDetails = json.decode(response.body);
@@ -69,10 +69,10 @@ class _EnrollStudentState extends State<EnrollStudent> {
             child: Container(
               decoration: BoxDecoration(
                 border: Border.all(color: AppColor.violet),
-                borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                borderRadius: const BorderRadius.all(Radius.circular(4.0)),
               ),
               child: DropdownButton(
-                hint: Text('  Select semester'),
+                hint: const Text('  Select semester'),
                 value: chooseSem,
                 onChanged: (newValue) async {
                   setState(() {
@@ -97,10 +97,10 @@ class _EnrollStudentState extends State<EnrollStudent> {
             child: Container(
               decoration: BoxDecoration(
                 border: Border.all(color: AppColor.violet),
-                borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                borderRadius: const BorderRadius.all(Radius.circular(4.0)),
               ),
               child: DropdownButton(
-                hint: Text('  Select Course'),
+                hint: const Text('  Select Course'),
                 value: chooseCourse,
                 onChanged: (newValue) {
                   setState(() {
@@ -122,7 +122,7 @@ class _EnrollStudentState extends State<EnrollStudent> {
             width: double.infinity,
             child: _createDataTable(),
           ),
-          SizedBox(
+          const SizedBox(
             height: 15,
           ),
           Padding(
@@ -160,9 +160,9 @@ class _EnrollStudentState extends State<EnrollStudent> {
                     );
                   }
                 },
-                child: Text('Enroll'),
                 height: 50,
                 shape: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                child: Text('Enroll'),
             ),
           )
         ],
@@ -176,9 +176,9 @@ class _EnrollStudentState extends State<EnrollStudent> {
 
   List<DataColumn> _createColumns() {
     return [
-      DataColumn(label: Text('RollNumber',style: TextStyle(fontWeight: FontWeight.w900,fontSize: 18),)),
-      DataColumn(label: Text('Name',style: TextStyle(fontWeight: FontWeight.w900,fontSize: 18),)),
-      DataColumn(label: Text('To enroll',style: TextStyle(fontWeight: FontWeight.w900,fontSize: 18),))
+      const DataColumn(label: Text('RollNumber',style: TextStyle(fontWeight: FontWeight.w900,fontSize: 18),)),
+      const DataColumn(label: Text('Name',style: TextStyle(fontWeight: FontWeight.w900,fontSize: 18),)),
+      const DataColumn(label: Text('To enroll',style: TextStyle(fontWeight: FontWeight.w900,fontSize: 18),))
     ];
   }
 

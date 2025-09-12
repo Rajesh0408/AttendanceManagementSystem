@@ -1,15 +1,9 @@
 import 'dart:convert';
-import 'dart:io';
-import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:myapp/addStudent.dart';
 import 'package:myapp/takeAttendance.dart';
 import 'constants/colours.dart';
 import 'EnrollCourseByFaculty.dart';
-import 'NavBar.dart';
 import 'package:http/http.dart' as http;
-import 'addCourseInput.dart';
-import 'my_header_drawer.dart';
 
 class listClass extends StatefulWidget{
   //final String userId;
@@ -41,13 +35,13 @@ class Myapp extends State<listClass> {
     isfaculty=widget.isfaculty;
     name=widget.name;
     fetchData();
-    print("userID in listclass:"+userId);
+    print("userID in listclass:$userId");
   }
 
   Future fetchData() async {
       http.Response response;
       response =
-      await http.get(Uri.parse('http://10.0.2.2:5000/ViewFacultyEnrolled/$userId'));
+      await http.get(Uri.parse('http://10.10.51.107:5000/ViewFacultyEnrolled/$userId'));
       if (response.statusCode == 200) {
         setState(() {
           listData = json.decode(response.body);

@@ -2,10 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:myapp/listClass.dart';
 import 'constants/colours.dart';
 import 'AdvisorMainPage.dart';
-import 'NavBar.dart';
 import 'absentIntimation.dart';
 import 'listClassViewAttendance.dart';
-import 'logIn_faculty.dart';
 import 'main.dart';
 
 class HomePageFaculty extends StatefulWidget {
@@ -254,8 +252,8 @@ class _HomePageFacultyState extends State<HomePageFaculty> {
         context: context,
         builder: (BuildContext) {
           return AlertDialog(
-            title: Text('Logout'),
-            content: Text('Are you sure you want to log out?'),
+            title: const Text('Logout'),
+            content: const Text('Are you sure you want to log out?'),
             actions: [
               TextButton(
                   onPressed: () {

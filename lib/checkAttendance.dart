@@ -1,9 +1,7 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import 'package:myapp/HomePageFaculty.dart';
 import 'package:myapp/takeAttendance.dart';
-import 'NavBar.dart';
 import 'post/postAttendance.dart';
 import 'constants/colours.dart';
 
@@ -14,7 +12,8 @@ class checkAttendance extends StatefulWidget {
   bool isfaculty;
   String? name;
   checkAttendance(
-      this.selectedStudents, this.courseCode, this.userId, this.isfaculty, this.name);
+      this.selectedStudents, this.courseCode, this.userId, this.isfaculty, this.name, {super.key});
+  @override
   checkAttendanceState createState() => checkAttendanceState();
 }
 
@@ -53,12 +52,12 @@ class checkAttendanceState extends State<checkAttendance> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: AppColor.blue,
-        title: Text('ABSENTEES'),
+        title: const Text('ABSENTEES'),
       ),
       body: ListView(
         children: [
-          Padding(padding: EdgeInsets.all(10.0)),
-          Container(
+          const Padding(padding: EdgeInsets.all(10.0)),
+          SizedBox(
             //padding: EdgeInsets.only(left: 10.0),
             width: double.infinity,
             child: DataTable(
@@ -79,13 +78,13 @@ class checkAttendanceState extends State<checkAttendance> {
                             takeAttendance(courseCode, userId, isfaculty!,name),
                       ));
                 },
-                child: Text(" Go Back"),
                 height: 50,
                 color: AppColor.blue,
                 shape:
                     OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                child: Text(" Go Back"),
               ),
-              SizedBox(width: 50),
+              const SizedBox(width: 50),
               MaterialButton(
                   onPressed: () {
                     postAttendance(selectedStudents, courseCode);
@@ -102,10 +101,10 @@ class checkAttendanceState extends State<checkAttendance> {
                       ),
                     );
                   },
-                  child: Text("Save attendance"),
                 height: 50,
                 color: AppColor.blue,
                 shape: OutlineInputBorder(borderRadius: BorderRadius.circular(10)),
+                  child: Text("Save attendance"),
               )
             ],
           ))
@@ -117,8 +116,8 @@ class checkAttendanceState extends State<checkAttendance> {
   List<DataColumn> _buildDataColumns() {
     // Customize your columns based on your data structure
     return [
-      DataColumn(label: Text('\t\t\t\t\t\t\t\t\t\t\t\t RollNumber')),
-      DataColumn(label: Text('Name')),
+      const DataColumn(label: Text('\t\t\t\t\t\t\t\t\t\t\t\t RollNumber')),
+      const DataColumn(label: Text('Name')),
       // Add more columns as needed
     ];
   }

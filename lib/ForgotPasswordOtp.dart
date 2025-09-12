@@ -91,7 +91,7 @@ class _ForgotPasswordOtpState extends State<ForgotPasswordOtp> {
                       if(await postForgotPasswordOTP(otp,userId?? "")){
                         Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPasswordNewPassword(userId?? ""),));
                       }else{
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Please enter the correct OTP'),duration: Duration(seconds: 2),backgroundColor: Colors.red,));
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Please enter the correct OTP'),duration: Duration(seconds: 2),backgroundColor: Colors.red,));
                       }
 
                   },

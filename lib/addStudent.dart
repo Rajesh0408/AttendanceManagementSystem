@@ -1,9 +1,5 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
-import 'package:myapp/listClass.dart';
-import 'package:myapp/post/postCourseDetails.dart';
 import 'package:myapp/post/postaddStudent.dart';
 import 'package:myapp/takeAttendance.dart';
 import 'constants/colours.dart';
@@ -32,7 +28,7 @@ class addStudentState extends State<addStudent> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    isfaculty=widget.isfaculty!;
+    isfaculty=widget.isfaculty;
     naam = widget.name;
   }
   @override
@@ -40,13 +36,13 @@ class addStudentState extends State<addStudent> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: AppColor.appbar,
-        title: Text('Add Student'), ),
+        title: const Text('Add Student'), ),
       body:Padding(
         padding: const EdgeInsets.all(16.0),
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             TextField(
               controller: rollnoController,
               keyboardType: TextInputType.number,
@@ -64,7 +60,7 @@ class addStudentState extends State<addStudent> {
                 ),
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             TextField(
               controller: nameController,
               decoration: const InputDecoration(
@@ -80,7 +76,7 @@ class addStudentState extends State<addStudent> {
                 ),
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             TextField(
               controller: emailController,
               decoration: const InputDecoration(
@@ -96,7 +92,7 @@ class addStudentState extends State<addStudent> {
                 ),
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             MaterialButton(
               minWidth: double.infinity,
               height:60,

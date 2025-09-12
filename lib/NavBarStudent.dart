@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:myapp/listClass.dart';
 import 'constants/colours.dart';
 
-import 'absentIntimation.dart';
-import 'facultyStudent.dart';
-import 'logIn_faculty.dart';
 import 'main.dart';
 class NavBarStudent extends StatefulWidget{
+  const NavBarStudent({super.key});
+
 
   //String userId;
   // String password;
  //NavBarStudent(this.userId);
+  @override
   NavBarState createState()=> NavBarState();
 }
 class NavBarState extends State<NavBarStudent> {
@@ -108,7 +107,7 @@ class NavBarState extends State<NavBarStudent> {
               size: 20.0, // Set the size as per your requirement
               // color: Colors.black, // Set the color as per your requirement
             ),
-            title: Text("Submitted Forms"),
+            title: const Text("Submitted Forms"),
           ),
           ListTile(
             onTap: (){
@@ -121,8 +120,8 @@ class NavBarState extends State<NavBarStudent> {
                 ),
               );
             },
-            leading: Icon(Icons.logout),
-            title: Text("logout"),
+            leading: const Icon(Icons.logout),
+            title: const Text("logout"),
 
           ),
         ],

@@ -3,18 +3,14 @@ import 'package:counter_button/counter_button.dart';
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
 import 'package:myapp/HomePageStudent.dart';
-import 'package:myapp/NavBarStudent.dart';
-import 'package:myapp/takeAttendance.dart';
 
-import 'NavBar.dart';
 import 'constants/colours.dart';
-import 'overallAttendanceStudent.dart';
 
 class absentIntimationStudent extends StatefulWidget{
   String userId;
   bool isfaculty;
   String name;
-  absentIntimationStudent(this.userId, this.isfaculty , this.name);
+  absentIntimationStudent(this.userId, this.isfaculty , this.name, {super.key});
 
   @override
   absentIntimationStudentState createState() => absentIntimationStudentState();
@@ -26,7 +22,7 @@ class absentIntimationStudentState extends State<absentIntimationStudent> {
   String userId='';
   bool? isfaculty;
   String? name;
-  int _selectedIndex = 1;
+  final int _selectedIndex = 1;
 
   TextEditingController hourController = TextEditingController();
   TextEditingController dateController = TextEditingController();
@@ -44,7 +40,7 @@ class absentIntimationStudentState extends State<absentIntimationStudent> {
   Future fetchData() async {
     http.Response response;
     try {
-      response = await http.get(Uri.parse('http://10.0.2.2:5000/ViewStudentEnrolled/$userId'));
+      response = await http.get(Uri.parse('http://10.10.51.107:5000/ViewStudentEnrolled/$userId'));
       if (response.statusCode == 200) {
         setState(() {
           courseCodeList = json.decode(response.body);
@@ -56,6 +52,7 @@ class absentIntimationStudentState extends State<absentIntimationStudent> {
     }
   }
 
+  @override
   void initState() {
     // TODO: implement initState
     super.initState();
@@ -76,6 +73,7 @@ class absentIntimationStudentState extends State<absentIntimationStudent> {
       setState(() {
         selectedDate = picked;
         Date="${selectedDate.toLocal()}".split(' ')[0];
+        print(Date);
         date=Date;
       });
     }
@@ -83,17 +81,18 @@ class absentIntimationStudentState extends State<absentIntimationStudent> {
 
    Future<bool> postData() async {
     http.Response response;
+    String? code= courseCode?.split(" ")[0];
       Map<String,dynamic> absentIntimationDetails={
         'user_id':userId,
-        'course_code': courseCode,
+        'course_code': code,
         'absent_date': date,
         'absent_hour': _counterValue,
         'absent_reason': reason
       };
       String jsonData = json.encode(absentIntimationDetails);
-      print(jsonData);
+      print("jsonData $jsonData");
       response = await http.post(
-          Uri.parse('http://10.0.2.2:5000/TakeForm'),
+          Uri.parse('http://10.10.51.107:5000/TakeForm'),
           headers: <String, String>{
             'Content-Type': 'application/json',
           },
@@ -115,7 +114,7 @@ class absentIntimationStudentState extends State<absentIntimationStudent> {
       resizeToAvoidBottomInset: false,
       appBar: AppBar(
         backgroundColor: AppColor.blue,
-        title: Text('Absent Intimation Form'),
+        title: const Text('Absent Intimation Form'),
       ),
       //drawer: NavBarStudent(),
       body: Padding(
@@ -123,7 +122,7 @@ class absentIntimationStudentState extends State<absentIntimationStudent> {
         child: Column(
           //mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Row(
               children: [
                 IconButton(
@@ -132,8 +131,8 @@ class absentIntimationStudentState extends State<absentIntimationStudent> {
                   _selectDate(context);
                 },
               ),
-                Text("\n Date: ${date}"),
-                 Text("\t\t\t\t\t\t\t\t\t\t\t\t\t\t"),
+                Text("\n Date: $date"),
+                 const Text("\t\t\t\t\t\t\t\t\t\t\t\t\t\t"),
             CounterButton(
               loading: false,
               removeIcon:const Icon(Icons.remove),
@@ -155,11 +154,11 @@ class absentIntimationStudentState extends State<absentIntimationStudent> {
               buttonColor: Colors.blueGrey,
               progressColor: Colors.lightGreenAccent,
             ),],),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             Container(
               decoration: BoxDecoration(
                 border: Border.all(color: AppColor.blue),
-                borderRadius: BorderRadius.all(Radius.circular(4.0)),
+                borderRadius: const BorderRadius.all(Radius.circular(4.0)),
               ),
               child: DropdownButton(
                 isExpanded: true,
@@ -168,7 +167,7 @@ class absentIntimationStudentState extends State<absentIntimationStudent> {
                 onChanged: (newValue1) {
                   setState(() {
                     courseCode = newValue1!.toString();
-                    print(courseCode);
+                    print('coursecode: $courseCode');
                   });
                 },
                 items: courseCodeList.map((valueItem1) {
@@ -181,7 +180,7 @@ class absentIntimationStudentState extends State<absentIntimationStudent> {
                 }).toList(),
               ),
             ),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
             TextField(
               maxLines: null,
               controller: reasonController,
@@ -198,8 +197,8 @@ class absentIntimationStudentState extends State<absentIntimationStudent> {
                 ),
               ),
             ),
-            SizedBox(height: 30),
-            SizedBox(height: 30),
+            const SizedBox(height: 30),
+            const SizedBox(height: 30),
             MaterialButton(
               minWidth: double.infinity,
               height:60,

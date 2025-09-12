@@ -3,7 +3,6 @@ import 'package:myapp/post/postForgotPasswordUserId.dart';
 
 
 import 'ForgotPasswordOtp.dart';
-import 'get/ForgotPasswordUserID.dart';
 import 'constants/colours.dart';
 
 class ForgotPassword extends StatefulWidget {
@@ -28,7 +27,7 @@ class _ForgotPasswordState extends State<ForgotPassword> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Forgot password'),
+        title: const Text('Forgot password'),
         backgroundColor: AppColor.blue,
       ),
       body: ListView(
@@ -66,11 +65,11 @@ class _ForgotPasswordState extends State<ForgotPassword> {
                         Navigator.push(context, MaterialPageRoute(builder: (context) => ForgotPasswordOtp(userId??""),));
 
                       }else{
-                        ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Enter a valid userId'),duration: Duration(seconds: 2),));
+                        ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Enter a valid userId'),duration: Duration(seconds: 2),));
 
                       }
                        }else{
-                      ScaffoldMessenger.of(context).showSnackBar(SnackBar(content: Text('Please enter the userId'),duration: Duration(seconds: 2),));
+                      ScaffoldMessenger.of(context).showSnackBar(const SnackBar(content: Text('Please enter the userId'),duration: Duration(seconds: 2),));
                     }
                 },
                   height: 45.0,
