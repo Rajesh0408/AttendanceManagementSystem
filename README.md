@@ -3,21 +3,8 @@
 Download the APK from the **[Releases](https://github.com/Rajesh0408/AttendanceManagementSystem/releases/tag/v1.0.0)** section of this repository and start using the app.  
 You can also watch the demo video in **Releases**.
 
-It may take around 15 to 30 seconds to login for the first time since the backend is hosted in render(cold start delay), so please wait with patience.
 
 👉 Backend Repository: [AttendanceManagementSystemBackend](https://github.com/Rajesh0408/AttendanceManagementSystemBackend)
-
----
-
-## 🔑 Login Credentials
-
-**Faculty & Advisor**  
-- User ID: `654321`  
-- Password: `Sabapathi@1234`  
-
-**Student**  
-- User ID: `2021239018`  
-- Password: `Rajesh@1234`  
 
 ---
 
