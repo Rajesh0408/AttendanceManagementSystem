@@ -63,17 +63,39 @@ Faculty and Advisor side UI screenshots:
 Home page
 
 <img src="lib/assets/images/home_page_faculty.png" width=200 height=400> 
-After clicking Take Attendance 
+Take Attendance 
 
 <img src="lib/assets/images/courses.png" width=200 height=400> <img src="lib/assets/images/take_attendance.png" width=200 height=400> <img src="lib/assets/images/absentees.png" width=200 height=400>  
-After clicking view attendance
+View attendance
 
 <img src="lib/assets/images/overall_attendance_faculty.png" width=200 height=400> 
-After clicking view forms
+View forms
 
 <img src="lib/assets/images/absent_forms_for_faculty.png" width=200 height=400> <img src="lib/assets/images/absent_forms_faculty.png" width=200 height=400> 
-
-After clicking My students:
+My students
 
 <img src="lib/assets/images/mystudents.png" width=200 height=400> 
+Add course
 
+<img src="lib/assets/images/add_course.png" width=200 height=400> 
+Enroll students
+
+<img src="lib/assets/images/enroll_students.png" width=200 height=400> 
+View Attendance
+
+<img src="lib/assets/images/overall_attendance_advisor.png" width=200 height=400>
+---
+Student side UI screenshots:
+
+Home page
+
+<img src="lib/assets/images/home_page_student.png" width=200 height=400> 
+Overall Attendance
+
+<img src="lib/assets/images/overall_student_student.png" width=200 height=400> 
+Take form
+
+<img src="lib/assets/images/take_form.png" width=200 height=400> 
+View forms
+
+<img src="lib/assets/images/absent_forms_student.png" width=200 height=400> 
