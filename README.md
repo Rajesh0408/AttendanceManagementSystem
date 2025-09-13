@@ -1,4 +1,4 @@
-<img width="1080" height="2400" alt="overall_attendance_faculty" src="https://github.com/user-attachments/assets/762d958d-8603-47ed-9e1c-0418dc448f56" /># 📘 Attendance Management System
+# 📘 Attendance Management System
 
 Download the APK from the **[Releases](https://github.com/Rajesh0408/AttendanceManagementSystem/releases/tag/v1.0.0)** section of this repository and start using the app.  
 You can also watch the demo video in **Releases**.
