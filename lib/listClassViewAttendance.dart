@@ -36,7 +36,7 @@ class Myapp extends State<listClassViewAttendance> {
   Future fetchData() async {
     http.Response response;
     response =
-    await http.get(Uri.parse('http://10.10.51.107:5000/ViewFacultyEnrolled/$userId'));
+    await http.get(Uri.parse('https://attendancemanagementsystembackend.onrender.com/ViewFacultyEnrolled/$userId'));
     if (response.statusCode == 200) {
       setState(() {
         listData = json.decode(response.body);

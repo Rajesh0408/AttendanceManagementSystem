@@ -32,8 +32,8 @@ class OverallAttendanceState extends State<OverallAttendance> {
   Future fetchData() async {
     http.Response response;
     try {
-      //response = await http.post(Uri.parse('http://10.10.51.107:5000/takeAttendance'));
-      response = await http.get(Uri.parse('http://10.10.51.107:5000/OverallAttendanceforCourse/$courseCode'));
+      //response = await http.post(Uri.parse('https://attendancemanagementsystembackend.onrender.com/takeAttendance'));
+      response = await http.get(Uri.parse('https://attendancemanagementsystembackend.onrender.com/OverallAttendanceforCourse/$courseCode'));
       if (response.statusCode == 200) {
         setState(() {
           studentDetails = json.decode(response.body);

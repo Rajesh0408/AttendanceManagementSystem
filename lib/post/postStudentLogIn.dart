@@ -8,7 +8,7 @@ Future<bool> postStudentLogInData(String userId,String password) async {
   };
   String jsonData = json.encode(courseDetails);
   http.Response response = await http.post(
-    Uri.parse('http://10.10.51.107:5000/studLogin'), // Replace with your actual API endpoint
+    Uri.parse('https://attendancemanagementsystembackend.onrender.com/studLogin'), // Replace with your actual API endpoint
     headers: <String, String>{
       'Content-Type': 'application/json',
     },
