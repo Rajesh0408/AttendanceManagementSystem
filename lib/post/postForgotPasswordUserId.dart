@@ -7,7 +7,7 @@ Future<bool> postForgotPasswordUserId(String userId ) async {
 
   String jsonData = json.encode(courseDetails);
   http.Response response = await http.post(
-    Uri.parse('https://attendancemanagementsystembackend.onrender.com/ViewFacultyEnrolled'), // Replace with your actual API endpoint
+    Uri.parse('http://10.10.51.107:5000/ViewFacultyEnrolled'), // Replace with your actual API endpoint
     headers: <String, String>{
       'Content-Type': 'application/json',
     },

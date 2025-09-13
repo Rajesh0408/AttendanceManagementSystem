@@ -46,7 +46,7 @@ class absentIntimationReasonState extends State<absentIntimationReason> {
     http.Response response;
     try {
       response = await http
-          .get(Uri.parse('https://attendancemanagementsystembackend.onrender.com/ViewFormFaculty/$absent_id'));
+          .get(Uri.parse('http://10.10.51.107:5000/ViewFormFaculty/$absent_id'));
       if (response.statusCode == 200) {
         setState(() {
           studentDetails = json.decode(response.body);

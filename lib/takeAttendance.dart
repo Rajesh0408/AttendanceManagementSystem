@@ -45,8 +45,8 @@ List<Map<String, dynamic>> selectedStudents = [];
   Future fetchData() async {
     http.Response response;
     try {
-      response = await http.get(Uri.parse('https://attendancemanagementsystembackend.onrender.com/TakeAttendance/$courseCode'));
-      //response = await http.get(Uri.parse('https://attendancemanagementsystembackend.onrender.com/addStudent'));
+      response = await http.get(Uri.parse('http://10.10.51.107:5000/TakeAttendance/$courseCode'));
+      //response = await http.get(Uri.parse('http://10.10.51.107:5000/addStudent'));
     if (response.statusCode == 200) {
       setState(() {
          studentDetails = json.decode(response.body);

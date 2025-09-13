@@ -119,47 +119,47 @@ class _HomePageStudentState extends State<HomePageStudent> {
               ),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.all(20.0),
-            child: GestureDetector(
-              onTap: () {
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (context) =>
-                          listClass(userId ?? "", isfaculty ?? false,name),
-                    ));
-              },
-              child: Container(
-                height: 130,
-                width: 200,
-                decoration: const BoxDecoration(
-                    color: AppColor.turquoise,
-                    borderRadius: BorderRadius.all(Radius.circular(20))),
-                child: const Row(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.only(left: 70.0),
-                      child: Text(
-                        'Daily Attendance ',
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 25,
-                            fontStyle: FontStyle.italic),
-                      ),
-                    ),
-                    ImageIcon(
-                      AssetImage(
-                        'lib/assets/icons/user.png',
-                      ),
-                      size: 60.0, // Set the size as per your requirement
-                      // color: Colors.white, // Set the color as per your requirement
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
+          // Padding(
+          //   padding: const EdgeInsets.all(20.0),
+          //   child: GestureDetector(
+          //     onTap: () {
+          //       Navigator.push(
+          //           context,
+          //           MaterialPageRoute(
+          //             builder: (context) =>
+          //                 listClass(userId ?? "", isfaculty ?? false,name),
+          //           ));
+          //     },
+          //     child: Container(
+          //       height: 130,
+          //       width: 200,
+          //       decoration: const BoxDecoration(
+          //           color: AppColor.turquoise,
+          //           borderRadius: BorderRadius.all(Radius.circular(20))),
+          //       child: const Row(
+          //         children: [
+          //           Padding(
+          //             padding: EdgeInsets.only(left: 70.0),
+          //             child: Text(
+          //               'Daily Attendance ',
+          //               style: TextStyle(
+          //                   color: Colors.white,
+          //                   fontSize: 25,
+          //                   fontStyle: FontStyle.italic),
+          //             ),
+          //           ),
+          //           ImageIcon(
+          //             AssetImage(
+          //               'lib/assets/icons/user.png',
+          //             ),
+          //             size: 60.0, // Set the size as per your requirement
+          //             // color: Colors.white, // Set the color as per your requirement
+          //           ),
+          //         ],
+          //       ),
+          //     ),
+          //   ),
+          // ),
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: GestureDetector(

@@ -9,7 +9,7 @@ Future<void> postAcceptReject(int absentId, int status) async {
   String jsonData = json.encode(data);
   print(jsonData);
   http.Response response = await http.post(
-    Uri.parse('https://attendancemanagementsystembackend.onrender.com/UpdateStatus/$absentId'), // Replace with your actual API endpoint
+    Uri.parse('http://10.10.51.107:5000/UpdateStatus/$absentId'), // Replace with your actual API endpoint
     headers: <String, String>{
       'Content-Type': 'application/json',
     },

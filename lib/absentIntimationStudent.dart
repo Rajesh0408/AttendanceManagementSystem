@@ -40,7 +40,7 @@ class absentIntimationStudentState extends State<absentIntimationStudent> {
   Future fetchData() async {
     http.Response response;
     try {
-      response = await http.get(Uri.parse('https://attendancemanagementsystembackend.onrender.com/ViewStudentEnrolled/$userId'));
+      response = await http.get(Uri.parse('http://10.10.51.107:5000/ViewStudentEnrolled/$userId'));
       if (response.statusCode == 200) {
         setState(() {
           courseCodeList = json.decode(response.body);
@@ -92,7 +92,7 @@ class absentIntimationStudentState extends State<absentIntimationStudent> {
       String jsonData = json.encode(absentIntimationDetails);
       print("jsonData $jsonData");
       response = await http.post(
-          Uri.parse('https://attendancemanagementsystembackend.onrender.com/TakeForm'),
+          Uri.parse('http://10.10.51.107:5000/TakeForm'),
           headers: <String, String>{
             'Content-Type': 'application/json',
           },

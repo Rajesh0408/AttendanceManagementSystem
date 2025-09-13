@@ -28,7 +28,7 @@ class absentIntimationState extends State<absentIntimation> {
   Future fetchData() async {
     http.Response response;
     try {
-      response = await http.get(Uri.parse('https://attendancemanagementsystembackend.onrender.com/AbsenceListFaculty/$userId'));
+      response = await http.get(Uri.parse('http://10.10.51.107:5000/AbsenceListFaculty/$userId'));
       if (response.statusCode == 200) {
         setState(() {
           form = json.decode(response.body);
