@@ -28,6 +28,7 @@ class _LoginPageState extends State<LoginPageFaculty> {
   String userId = '';
   String password = '';
   Map<String,dynamic>? result;
+  bool isLoading = false;
 
   @override
   Widget build(BuildContext context) {
@@ -80,11 +81,19 @@ class _LoginPageState extends State<LoginPageFaculty> {
               child: MaterialButton(
                 minWidth: double.infinity,
                 height: 60,
-                  onPressed: () async {
+                  onPressed:  isLoading
+                    ? null
+                    : () async {
                     if(validateCredentials()) {
+                      setState(() {
+                        isLoading = true;
+                      });
                       userId = userIdController.text;
                       password = passwordController.text;
                       result=await postLogInData(userId, password);
+                      setState(() {
+                        isLoading = false;
+                      });
                       if (result!.isEmpty) {
                         ScaffoldMessenger.of(context).showSnackBar(
                           const SnackBar(
@@ -134,10 +143,20 @@ class _LoginPageState extends State<LoginPageFaculty> {
                     }
                 },
                 color: AppColor.blue, // Changed to green
+                disabledColor: AppColor.blue,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(40),
                 ),
-                child: const Text(
+                child: isLoading
+              ? const SizedBox(
+                  width: 24,
+                  height: 24,
+                  child: CircularProgressIndicator(
+                    strokeWidth: 2.5,
+                    valueColor: AlwaysStoppedAnimation<Color>(Colors.white),
+                  ),
+                )
+                  :  const Text(
                   "Login",
                   style: TextStyle(
                     fontWeight: FontWeight.w600,
