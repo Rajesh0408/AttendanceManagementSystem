@@ -53,6 +53,7 @@ flutter pub get
 # Run the app in debug mode
 flutter run
 ```
+---
 
 Home page
 
