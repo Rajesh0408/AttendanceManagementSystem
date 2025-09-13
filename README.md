@@ -65,13 +65,15 @@ Home page
 <img src="lib/assets/images/home_page_faculty.png" width=200 height=400> 
 Take Attendance 
 
-<img src="lib/assets/images/courses.png" width=200 height=400> <img src="lib/assets/images/take_attendance.png" width=200 height=400> <img src="lib/assets/images/absentees.png" width=200 height=400>  
+<img src="lib/assets/images/courses.png" width=200 height=400> <img src="lib/assets/images/take_attendance.png" width=200 height=400> <img src="lib/assets/images/absentees.png" width=200 height=400>
+
 View attendance
 
 <img src="lib/assets/images/overall_attendance_faculty.png" width=200 height=400> 
 View forms
 
 <img src="lib/assets/images/absent_forms_for_faculty.png" width=200 height=400> <img src="lib/assets/images/absent_forms_faculty.png" width=200 height=400> 
+
 My students
 
 <img src="lib/assets/images/mystudents.png" width=200 height=400> 
@@ -85,6 +87,7 @@ View Attendance
 
 <img src="lib/assets/images/overall_attendance_advisor.png" width=200 height=400>
 ---
+
 Student side UI screenshots:
 
 Home page
@@ -92,7 +95,7 @@ Home page
 <img src="lib/assets/images/home_page_student.png" width=200 height=400> 
 Overall Attendance
 
-<img src="lib/assets/images/overall_student_student.png" width=200 height=400> 
+<img src="lib/assets/images/overall_attendance_student.png" width=200 height=400> 
 Take form
 
 <img src="lib/assets/images/take_form.png" width=200 height=400> 
