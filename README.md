@@ -86,6 +86,7 @@ Enroll students
 View Attendance
 
 <img src="lib/assets/images/overall_attendance_advisor.png" width=200 height=400>
+
 ---
 
 Student side UI screenshots:
