@@ -55,7 +55,8 @@ flutter run
 ```
 ---
 Signup and Signin pages:
-<img src="lib/assets/images/signup.png" width=200 height=400>  <img src="lib/assets/images/signin.png" width=200 height=400>
+
+<img src="lib/assets/images/signup.png" width=200 height=400>          <img src="lib/assets/images/signin.png" width=200 height=400>
 
 Faculty and Advisor side UI screenshots:
 Home page
