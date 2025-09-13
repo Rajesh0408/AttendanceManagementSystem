@@ -7,13 +7,13 @@ Future<bool> postForgotPasswordUserId(String userId ) async {
 
   String jsonData = json.encode(courseDetails);
   http.Response response = await http.post(
-    Uri.parse('https://attendancemanagementsystembackend.onrender.com/ViewFacultyEnrolled'), // Replace with your actual API endpoint
+    Uri.parse('https://attendancemanagementsystembackend.onrender.com/SendOTPFgtPwd'), // Replace with your actual API endpoint
     headers: <String, String>{
       'Content-Type': 'application/json',
     },
     body: jsonData,
   );
-  if (response.statusCode == 201) {
+  if (response.statusCode == 200) {
     print('Data posted successfully');
     print(response.body);
     return true;
