@@ -59,9 +59,10 @@ Signup and login page:
 <img src="lib/assets/images/signup.png" width=200 height=400>          <img src="lib/assets/images/signin.png" width=200 height=400>
 
 Faculty and Advisor side UI screenshots:
+
 Home page
 
 <img src="lib/assets/images/home_page_faculty.png" width=200 height=400> 
 After clicking Take Attendance 
 
-<img src="lib/assets/images/home_page_faculty.png" width=200 height=400> <img src="lib/assets/images/courses.png" width=200 height=400> <img src="lib/assets/images/take_attendance.png" width=200 height=400> <img src="lib/assets/images/absentees.png" width=200 height=400>  
+<img src="lib/assets/images/courses.png" width=200 height=400> <img src="lib/assets/images/take_attendance.png" width=200 height=400> <img src="lib/assets/images/absentees.png" width=200 height=400>  
