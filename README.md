@@ -34,9 +34,7 @@ You can also watch the demo video in **Releases**.
 
 ---
 
-Home page
 
-<img src="lib/assets/images/home.png" width=200 height=400>
 
 ## ⚙️ Installation (for Developers)
 
@@ -54,4 +52,8 @@ flutter pub get
 
 # Run the app in debug mode
 flutter run
+```
 
+Home page
+
+<img src="lib/assets/images/home.png" width=200 height=400>
