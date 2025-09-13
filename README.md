@@ -1,4 +1,4 @@
-# 📘 Attendance Management System
+<img width="1080" height="2400" alt="overall_attendance_faculty" src="https://github.com/user-attachments/assets/762d958d-8603-47ed-9e1c-0418dc448f56" /># 📘 Attendance Management System
 
 Download the APK from the **[Releases](https://github.com/Rajesh0408/AttendanceManagementSystem/releases/tag/v1.0.0)** section of this repository and start using the app.  
 You can also watch the demo video in **Releases**.
@@ -66,3 +66,14 @@ Home page
 After clicking Take Attendance 
 
 <img src="lib/assets/images/courses.png" width=200 height=400> <img src="lib/assets/images/take_attendance.png" width=200 height=400> <img src="lib/assets/images/absentees.png" width=200 height=400>  
+After clicking view attendance
+
+<img src="lib/assets/images/overall_attendance_faculty.png" width=200 height=400> 
+After clicking view forms
+
+<img src="lib/assets/images/absent_forms_for_faculty.png" width=200 height=400> <img src="lib/assets/images/absent_forms_faculty.png" width=200 height=400> 
+
+After clicking My students:
+
+<img src="lib/assets/images/mystudents.png" width=200 height=400> 
+
