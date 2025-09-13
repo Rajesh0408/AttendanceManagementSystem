@@ -40,7 +40,7 @@ class _EnrollStudentState extends State<EnrollStudent> {
     http.Response response;
     try {
       response = await http
-          .get(Uri.parse('http://10.10.51.107:5000/MyStudentList/$userId'));
+          .get(Uri.parse('https://attendancemanagementsystembackend.onrender.com/MyStudentList/$userId'));
       if (response.statusCode == 200) {
         setState(() {
           studentDetails = json.decode(response.body);

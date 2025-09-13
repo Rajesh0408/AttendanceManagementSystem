@@ -31,7 +31,7 @@ class ViewAttendanceForAdvisorState extends State<ViewAttendanceForAdvisor> {
     http.Response response;
     try {
       response = await http.get(
-          Uri.parse('http://10.10.51.107:5000/OverallAttendanceforAdvisor/$userId'));
+          Uri.parse('https://attendancemanagementsystembackend.onrender.com/OverallAttendanceforAdvisor/$userId'));
       if (response.statusCode == 200) {
         setState(() {
           studentDetails = json.decode(response.body);
